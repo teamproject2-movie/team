@@ -12,7 +12,6 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
     
     public void signup(String username, String password) {
         if (userRepository.findByUsername(username).isPresent()) {
