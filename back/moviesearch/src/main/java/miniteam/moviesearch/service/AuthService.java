@@ -23,4 +23,16 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(password)); // 비밀번호는 평문이 아닌 BCrypt 암호화 후 저장
         userRepository.save(user); // DB에 저장
     }
+
+    public String login(String username, String password) { // DB에서 username으로 사용자 조회
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("사용자가 존재하지 않습니다.")); // 없으면 예외 발생
+
+        if (!passwordEncoder.matches(password, user.getPassword())) { // 평문 비밀번호를 암호화된 비밀번호와 비교
+            throw new RuntimeException("비밀번호가 틀렸습니다.");     // 일치하지 않으면 예외 발생
+
+        }
+
+        return jwtTokenProvider.generateToken(user.getUsername()); // 검증을 통과하면 username을 넣은 JWT 토큰 생성 후 반환
+    }
 }

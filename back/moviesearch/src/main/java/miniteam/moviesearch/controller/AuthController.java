@@ -2,6 +2,7 @@ package miniteam.moviesearch.controller;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import miniteam.moviesearch.dto.LoginRequest;
 import miniteam.moviesearch.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,12 @@ public class AuthController {
     public ResponseEntity<?> signup(@RequestBody SignupRequest request) {   // 클라이언트에서 보낸 JSON을 SignupRequest 객체로 자동 매핑
         authService.signup(request.getUsername(), request.getPassword());   // 사용자 저장 비즈니스 호출
         return ResponseEntity.ok("회원가입 성공");        // 응답 HTTP 200 OK로 "회원가입 성공" 반환
+    }
+
+    @PostMapping("/login")      // 로그인 요청 처리
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) { //@RequestBody: JSON 요창 본문을 LoginRequest 객체로 매핑
+        String token = authService.login(request.getUsername(), request.getPassword()); // 사용자 검증 -> JWT 발급
+        return ResponseEntity.ok().body("Bearer " + token); // 응답은 "Bearer {토큰}" 형식 (나중에 HTTP 헤더에 담아서 인증할 때 사용)
     }
 
     @Data
