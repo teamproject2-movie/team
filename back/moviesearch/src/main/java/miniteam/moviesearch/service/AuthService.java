@@ -30,7 +30,6 @@ public class AuthService {
 
         if (!passwordEncoder.matches(password, user.getPassword())) { // 평문 비밀번호를 암호화된 비밀번호와 비교
             throw new RuntimeException("비밀번호가 틀렸습니다.");     // 일치하지 않으면 예외 발생
-
         }
 
         return jwtTokenProvider.generateToken(user.getUsername()); // 검증을 통과하면 username을 넣은 JWT 토큰 생성 후 반환
