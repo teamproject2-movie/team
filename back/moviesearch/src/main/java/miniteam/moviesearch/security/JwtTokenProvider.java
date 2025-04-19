@@ -1,4 +1,4 @@
-package miniteam.moviesearch.JwtTokenProvider;
+package miniteam.moviesearch.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
