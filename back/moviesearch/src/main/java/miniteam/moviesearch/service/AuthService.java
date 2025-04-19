@@ -3,6 +3,7 @@ package miniteam.moviesearch.service;
 import lombok.RequiredArgsConstructor;
 import miniteam.moviesearch.entity.User;
 import miniteam.moviesearch.repository.UserRepository;
+import miniteam.moviesearch.security.JwtTokenProvider;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -12,7 +13,7 @@ public class AuthService {
 
     private final UserRepository userRepository;    // DB에 사용자 저장/조회
     private final PasswordEncoder passwordEncoder;  // 비밀번호를 암호화할 때 사용
-
+    private final JwtTokenProvider jwtTokenProvider;
 
     public void signup(String username, String password) {
         if (userRepository.findByUsername(username).isPresent()) {
