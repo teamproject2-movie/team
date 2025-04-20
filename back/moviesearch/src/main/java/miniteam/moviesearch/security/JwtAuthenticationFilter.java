@@ -23,7 +23,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 요청마
                                      HttpServletResponse response,
                                      FilterChain filterChain)
             throws ServletException, IOException { // 필터가 실행될 때 호출되는 핵심 메서드
-        String authHeader = request.getHeader("Authrization"); // 요청 헤더 중 Authorization을 꺼냄 예: Bearer eyJhdGciOi..."
+        String authHeader = request.getHeader("Authorization"); // 요청 헤더 중 Authorization을 꺼냄 예: Bearer eyJhdGciOi..."
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) { // 헤더가 null이 아니고 "Bearer "로 시작할 경우에만 처리함
             String token = authHeader.substring(7); // "Bearer " 제거하고 실제 JWT만 남김
