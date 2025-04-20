@@ -17,7 +17,7 @@ public class AuthController {
 
     @PostMapping("/signup") // POST /api/auth/signup 요청을 처리
     public ResponseEntity<?> signup(@RequestBody SignupRequest request) {   // 클라이언트에서 보낸 JSON을 SignupRequest 객체로 자동 매핑
-        authService.signup(request.getUsername(), request.getPassword());   // 사용자 저장 비즈니스 호출
+        authService.signup(request.getUsername(), request.getPassword(), request.getEmail());   // 사용자 저장 비즈니스 호출
         return ResponseEntity.ok("회원가입 성공");        // 응답 HTTP 200 OK로 "회원가입 성공" 반환
     }
 
@@ -31,6 +31,7 @@ public class AuthController {
     public static class SignupRequest {
         private String username;
         private String password;
+        private String email;
     }   // 내부 DTO 클래스
     // 클라이언트에서 보낸 JSON을 파싱할 때 사용
 }

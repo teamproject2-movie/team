@@ -18,4 +18,6 @@ public class User {
     private String username;    // username은 중복 불가(unique)
 
     private String password;    //password는 암호화된 비밀번호가 저장됨
+
+    private String email;       //email은 그냥 저장됨
 }

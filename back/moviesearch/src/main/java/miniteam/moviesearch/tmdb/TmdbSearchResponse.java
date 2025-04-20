@@ -11,7 +11,7 @@ import java.util.List;
 public class TmdbSearchResponse {
     //Search 배열 안에 있는 각 영화 객체를 표현한 클래스
     //JsonProperty는 JSON키와 자바 필드 이름이 다를 때 매핑해주는 역할 (OMDb는 대문자 키를 사용하기 때문에 이게 필요함)
-    @JsonProperty("Search")
+    @JsonProperty("results")
     private List<TmdbMovieItem> results;
 }
 

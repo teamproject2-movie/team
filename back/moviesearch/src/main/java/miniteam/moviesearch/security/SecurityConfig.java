@@ -26,7 +26,13 @@ public class SecurityConfig { // 시큐리티 설정 클래스
         return http
                 .csrf(csrf -> csrf.disable()) // CSRF(사이트간 요청 위조) 방지 기능은 지금은 꺼둠 (JWT 기반 앱에서는 주로 비활성화)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()    // 회원가입, 로그인은 인증없이 가능
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/api/auth/**",
+                                "/api/movies/Search"
+                        ).permitAll()   // 회원가입, 로그인은 인증없이 가능
                         .anyRequest().authenticated()       // 그 외의 행동은 인증된 사용자만 접근 가능
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
