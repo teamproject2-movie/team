@@ -1,0 +1,109 @@
+body {
+    background-color: #f6f6f6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title{
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    margin: 80px 0 0 0;
+    line-height: 1;
+  }
+
+  .title2{
+    text-align: center;
+    font-size: 30px;
+    margin:0;
+  }
+
+  
+  /* 네비게이션 바 */
+  .navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    height: 30px;
+  }
+  
+  .navbar-right button {
+    margin-left: 10px;
+    padding: 6px 14px;
+    font-size: 14px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .navbar-right button:hover {
+    background-color: #ddd;
+  }
+  
+  /* 로그인 박스 */
+  .login-wrapper {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .login-wrapper h1 {
+    margin-bottom: 10px;
+  }
+  
+  .login-wrapper p {
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .button-group button:hover {
+    background-color: #000;
+  }
+  
