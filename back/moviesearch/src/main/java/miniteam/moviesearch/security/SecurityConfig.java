@@ -31,7 +31,11 @@ public class SecurityConfig { // 시큐리티 설정 클래스
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/api/auth/**",
-                                "/api/movies/Search"
+                                "/api/movies/Search",
+                                "/login/**",
+                                "/register/**",
+                                "/MovieFinder/**",
+                                "/logo.png"
                         ).permitAll()   // 회원가입, 로그인은 인증없이 가능
                         .anyRequest().authenticated()       // 그 외의 행동은 인증된 사용자만 접근 가능
                 )

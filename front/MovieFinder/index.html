@@ -7,29 +7,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 네비게이션 바 -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <img src="../logo.png" alt="로고" class="logo" />
-    </div>
-    <div class="navbar-right">
-      <!-- 로그아웃은 나중에 토큰이 발행되면 토큰을 없애는 식으로 구현할 예정 -->
-      <button class="nav-btn">Logout</button>
-    </div>
-  </nav>
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="../logo.png" alt="로고" class="logo" />
+  </div>
+  <div class="navbar-right">
+    <!-- 로그아웃은 나중에 토큰이 발행되면 토큰을 없애는 식으로 구현할 예정 -->
+    <button class="nav-btn">Logout</button>
+  </div>
+</nav>
 
-  <!-- 검색 영역 -->
-  <section class="search-section">
-    <h1 class = 'title'>영화 찾아 보려고?</h1>
-    <p class = "title2">원하는 영화 검색해봐</p>
-    <input type="text" id="searchInput" placeholder="영화 제목 입력" />
-    <button onclick="searchMovies()">Submit</button>
-  </section>
+<!-- 검색 영역 -->
+<section class="search-section">
+  <h1 class = 'title'>영화 찾아 보려고?</h1>
+  <p class = "title2">원하는 영화 검색해봐</p>
+  <input type="text" id="searchInput" placeholder="영화 제목 입력" />
+  <button onclick="searchMovies()">Submit</button>
+</section>
 
-  <!-- 결과 영역 -->
-  <section id="resultSection" class="result-section">
-  </section>
+<!-- 결과 영역 -->
+<section id="resultSection" class="result-section">
+</section>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

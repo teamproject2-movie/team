@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="" />
+    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/MovieFinder/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/MovieFinder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/MovieFinder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/login/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/login/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/register/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/register/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/register/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +26,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "HLuKing"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HLuKing&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/teamproject2-movie/team.git",
-    "accountId": "6ad09c0d-c67a-4fe4-b55a-05a25d0e33e9"
+    "accountId": "9b186bdc-78f0-4315-93ae-d3a6b021a413"
   }
 }]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2vkFWkJpNJLfcPFS66FUQLJeuif" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +48,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript 디버그.index.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/jyj/Downloads/teammini2",
@@ -64,6 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1744681198679</updated>
       <workItem from="1744681199832" duration="484000" />
+      <workItem from="1745653577687" duration="2390000" />
     </task>
     <servers />
   </component>
