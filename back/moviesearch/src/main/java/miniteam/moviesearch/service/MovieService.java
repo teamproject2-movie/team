@@ -36,7 +36,7 @@ public class MovieService {
         loadGenreMapIfNeeded(); // 장르 정보 먼저 불러오기
 
         // 영화 검색
-        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + query; // TMDb의 검색 API URL 생성
+        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + query + "&language=ko-KR"; // TMDb의 검색 API URL 생성
         // 쿼리와 API 키를 붙여 완성된 요청 URL 만들기
         TmdbSearchResponse response = restTemplate.getForObject(url, TmdbSearchResponse.class); //해당 URL로 GET요청을 보내고, 응답을 TmdbSearchResponse 객체로 자동 피싱
 
@@ -51,6 +51,7 @@ public class MovieService {
             dto.setTitle(item.getTitle());
             dto.setReleaseDate(item.getReleaseDate());
             dto.setPosterUrl("https://image.tmdb.org/t/p/w500" + item.getPosterPath());
+            dto.setOverview(item.getOverview());
 
             List<String> genreNames = item.getGenreIds().stream() // item.getGenreIds()는 TMDb가 응답한 장르숫자 리스트 (예[28, 12]) .stream()은 리스트를 하나씩 반복해서 처리할 준비를 함( Java 스트림 문법)
                             .map(genreMap::get) // 장르 ID를 genreMap에서 꺼내서 이름으로 바꿈 예) 28 -> "Action" 즉, TMDb가 준 ID를 우리가 미리 받아둔 장르 맵에서 찾아서 바꾸는 중
@@ -73,7 +74,7 @@ public class MovieService {
     private void loadGenreMapIfNeeded() {   // 이 메서드는 앱이 처음 실행되거나 검색 요청을 할 때 한 번만 장르 목록을 불러오도록 함
         if (!genreMap.isEmpty()) return;    // 이미 장르맵이 있으면 다시 불러올 필요 없으니까 빠져나감
 
-        String url = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + apiKey; // TMDb 장르 목록을 요청하는 URL
+        String url = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + apiKey + "&language=ko-KR";; // TMDb 장르 목록을 요청하는 URL
         GenreResponse response = restTemplate.getForObject(url, GenreResponse.class);   // API 요청 -> 응답을 GenreResponse 객체로 자동 변환
 
         if (response != null && response.getGenres() != null) {

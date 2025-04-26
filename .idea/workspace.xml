@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/MovieFinder/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/MovieFinder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/MovieFinder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/MovieFinder/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/login/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/login/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/login/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/register/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/register/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/register/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/register/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/dto/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/dto/MovieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/tmdb/TmdbMovieItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/tmdb/TmdbMovieItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/resources/static/MovieFinder/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/resources/static/MovieFinder/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +72,32 @@
       <option name="presentableId" value="Default" />
       <updated>1744681198679</updated>
       <workItem from="1744681199832" duration="484000" />
-      <workItem from="1745653577687" duration="2390000" />
+      <workItem from="1745653577687" duration="3072000" />
     </task>
+    <task id="LOCAL-00001" summary="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)">
+      <option name="closed" value="true" />
+      <created>1745658995064</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745658995064</updated>
+    </task>
+    <task id="LOCAL-00002" summary="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)">
+      <option name="closed" value="true" />
+      <created>1745659010441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745659010441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)" />
+    <option name="LAST_COMMIT_MESSAGE" value="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)" />
   </component>
 </project>

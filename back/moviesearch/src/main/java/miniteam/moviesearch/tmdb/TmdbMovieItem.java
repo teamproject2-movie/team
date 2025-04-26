@@ -19,4 +19,6 @@ public class TmdbMovieItem {
     @JsonProperty("genre_ids")
     private List<Integer> genreIds;
 
+    private String overview;
+
 }

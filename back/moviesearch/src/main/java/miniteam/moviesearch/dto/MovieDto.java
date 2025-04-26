@@ -10,5 +10,6 @@ public class MovieDto { // 검색 결과용 DTO
     private String title;
     private String releaseDate;
     private String posterUrl;
+    private String overview;
     private List<String> genres;    // 장르 (태그용)
 }

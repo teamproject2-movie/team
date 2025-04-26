@@ -69,7 +69,7 @@ function searchMovies() {
           const card = document.createElement("div");
           card.className = "movie-card";
           card.innerHTML = `
-          <img src="placeholder.png" alt="포스터" />
+          <img src="${movie.posterUrl}" alt="포스터" />
           <h3>${movie.title}</h3>
           <p>${movie.overview || "설명 없음"}</p>
         `;
