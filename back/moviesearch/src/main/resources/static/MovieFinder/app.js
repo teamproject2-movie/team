@@ -49,11 +49,11 @@ function searchMovies() {
 
   //서버 연결 부분
   fetch(`http://localhost:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
-  method: "GET",
+/*  method: "GET",
       headers: {
     "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
         "Content-Type": "application/json"
-  }
+  }*/
 })
     .then(response => {
       if (!response.ok) throw new Error("검색 실패");
