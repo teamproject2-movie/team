@@ -48,12 +48,12 @@ function searchMovies() {
   resultSection.appendChild(cardContainer);
 
   //서버 연결 부분
-  fetch(`http://localhost:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
-      "Content-Type": "application/json"
-    }
+  fetch(`http://54.252.242.219:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
+    /*  method: "GET",
+          headers: {
+        "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json"
+      }*/
   })
       .then(response => {
         if (!response.ok) throw new Error("검색 실패");
@@ -71,7 +71,7 @@ function searchMovies() {
           card.innerHTML = `
           <img src="${movie.posterUrl}" alt="포스터" />
           <h3>${movie.title}</h3>
-          <p>${movie.overview || "설명 없음"}</p>
+          <p>${movie.genres ? movie.genres.join(", ") : "설명 없음"}</p>
         `;
           cardContainer.appendChild(card);
         });
@@ -83,4 +83,3 @@ function searchMovies() {
         alert("검색 결과가 없습니다.");
       });
 }
-ㅋㅋㅋ
