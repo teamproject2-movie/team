@@ -28,7 +28,9 @@ public class SecurityConfig { // 시큐리티 설정 클래스
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("http://54.252.242.219:3000"));
+        configuration.setAllowedOriginPatterns(List.of(
+                "http://54.252.242.219:3000",
+                "http://54.252.242.219:80"));
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
