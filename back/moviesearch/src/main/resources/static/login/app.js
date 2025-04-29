@@ -9,7 +9,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
     }
 
     // 👉 입력이 정상이라면 그냥 서버로 요청 보내기
-    fetch("http://localhost:8080/api/auth/login", {
+    fetch("http://54.252.242.219:8080/api/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

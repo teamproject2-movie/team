@@ -8,7 +8,7 @@ document.getElementById("register-btn").addEventListener("click", function () {
     return;
   }
 
-  fetch("http://localhost:8080/api/auth/signup", {
+  fetch("http://54.252.242.219:8080/api/auth/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
