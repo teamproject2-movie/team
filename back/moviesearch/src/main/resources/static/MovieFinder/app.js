@@ -48,7 +48,7 @@ function searchMovies() {
   resultSection.appendChild(cardContainer);
 
   //서버 연결 부분
-  fetch(`http://54.252.242.219:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
+  fetch(`http://localhost:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
 /*  method: "GET",
       headers: {
     "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,

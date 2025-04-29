@@ -32,11 +32,11 @@ public class MovieService {
     private Map<Integer, String> genreMap = new HashMap<>();    // TMDb에서 받은 장르 리스트를 캐싱해두는 맵
     // 28 -> "Action" 이런 식으로 저장됨
 
-    public List<MovieDto> searchMovies(String query) {  // 검색어(query)를 받아서 TMDb API를 호출하고 결과를 DTO로 가공해주는 메서드
+    public List<MovieDto> searchMovies(String query, String language) {  // 검색어(query)를 받아서 TMDb API를 호출하고 결과를 DTO로 가공해주는 메서드
         loadGenreMapIfNeeded(); // 장르 정보 먼저 불러오기
 
         // 영화 검색
-        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + query + "&language=ko-KR"; // TMDb의 검색 API URL 생성
+        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + query + "&language=" + language; // TMDb의 검색 API URL 생성
         // 쿼리와 API 키를 붙여 완성된 요청 URL 만들기
         TmdbSearchResponse response = restTemplate.getForObject(url, TmdbSearchResponse.class); //해당 URL로 GET요청을 보내고, 응답을 TmdbSearchResponse 객체로 자동 피싱
 

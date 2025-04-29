@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="한글 지원하는 부분은 한글로 불러오도록 수정&#10;포스터 불러오기 수정&#10;영화 검색 시 설명 추가 수정">
-      <change beforePath="$PROJECT_DIR$/back/moviesearch/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/.gitignore" afterDir="false" />
+    <list default="true" id="83283979-0b11-4af4-b755-8985d84e36a3" name="변경" comment="ec2">
+      <change beforePath="$PROJECT_DIR$/.idea/teammini2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teammini2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/controller/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/build/classes/java/main/miniteam/moviesearch/service/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/resources/main/static/MovieFinder/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/build/resources/main/static/MovieFinder/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/tmp/compileJava/compileTransaction/stash-dir/SecurityConfig.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/java/miniteam/moviesearch/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/moviesearch/src/main/resources/static/MovieFinder/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/resources/static/MovieFinder/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/back/moviesearch/src/main/resources/static/logo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1744681198679</updated>
       <workItem from="1744681199832" duration="484000" />
-      <workItem from="1745653577687" duration="4292000" />
+      <workItem from="1745653577687" duration="5534000" />
     </task>
     <task id="LOCAL-00001" summary="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)">
       <option name="closed" value="true" />
@@ -94,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745674247396</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ec2">
+      <option name="closed" value="true" />
+      <created>1745843550329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745843550329</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +122,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="프론트엔드 변수이름 및 주소 변경&#10;추가로 js에서 검사하는부분 제거(백앤드와 중복되는것만)" />
     <MESSAGE value="한글 지원하는 부분은 한글로 불러오도록 수정&#10;포스터 불러오기 수정&#10;영화 검색 시 설명 추가 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="한글 지원하는 부분은 한글로 불러오도록 수정&#10;포스터 불러오기 수정&#10;영화 검색 시 설명 추가 수정" />
+    <MESSAGE value="ec2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ec2" />
   </component>
 </project>
