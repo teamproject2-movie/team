@@ -34,7 +34,7 @@ public class SecurityConfig { // 시큐리티 설정 클래스
                 "http://54.252.242.219:80"));
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
-        configuration.setAllowCredentials(false);
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
