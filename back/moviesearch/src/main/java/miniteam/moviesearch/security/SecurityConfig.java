@@ -3,6 +3,7 @@ package miniteam.moviesearch.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -49,6 +50,7 @@ public class SecurityConfig { // 시큐리티 설정 클래스
                 .csrf(csrf -> csrf.disable()) // CSRF(사이트간 요청 위조) 방지 기능은 지금은 꺼둠 (JWT 기반 앱에서는 주로 비활성화)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
