@@ -17,7 +17,7 @@ public class MovieController {  // 실제 컨트롤러 클래스 선언
     private final MovieService movieService;    // MovieService를 의존성 주입 받음
 // final 이 붙어있어서 생성자 방식으로만 주입 가능(위의 @RequiredArgsConstructor와 연동됨)
 
-    @GetMapping("/Search")  // /api/movies/search로 GET 요청이 오면 이 메서드 실행
+    @GetMapping("/search")  // /api/movies/search로 GET 요청이 오면 이 메서드 실행
     public ResponseEntity<?> searchMoviessearchMoives(@RequestParam String query, @RequestParam(defaultValue = "ko-KR") String language) {
         //ResponseEntity<?>: 결과를 감싸서 HTTP 상태 코드와 함께 반환할 수 있게 해줌
 

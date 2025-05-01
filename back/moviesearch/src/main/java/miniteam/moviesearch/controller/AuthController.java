@@ -3,6 +3,8 @@ package miniteam.moviesearch.controller;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import miniteam.moviesearch.dto.LoginRequest;
+import miniteam.moviesearch.dto.SignupRequest;
+import miniteam.moviesearch.dto.UserUpdateRequest;
 import miniteam.moviesearch.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,11 +29,17 @@ public class AuthController {
         return ResponseEntity.ok().body("Bearer " + token); // 응답은 "Bearer {토큰}" 형식 (나중에 HTTP 헤더에 담아서 인증할 때 사용)
     }
 
-    @Data
-    public static class SignupRequest {
-        private String username;
-        private String password;
-        private String email;
-    }   // 내부 DTO 클래스
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody UserUpdateRequest request) {
+        authService.updateUser(request.getPassword(), request.getEmail());
+        return ResponseEntity.ok("사용자 정보가 수정되었습니다.");
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteuser() {
+        authService.deleteUser();
+        return ResponseEntity.ok("사용자 계정이 삭제되었습니다.");
+    }
+    // 내부 DTO 클래스
     // 클라이언트에서 보낸 JSON을 파싱할 때 사용
 }

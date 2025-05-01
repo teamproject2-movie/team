@@ -18,8 +18,6 @@ public class Bookmark {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // 북마크한 영화의 TMDb ID, 제목, 포스터 URL
+    // 북마크한 영화의 TMDb ID
     private String movieId;
-    private String title;
-    private String posterUrl;
 }

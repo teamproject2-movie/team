@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import miniteam.moviesearch.entity.User;
 import miniteam.moviesearch.repository.UserRepository;
 import miniteam.moviesearch.security.JwtTokenProvider;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -14,6 +15,12 @@ public class AuthService {
     private final UserRepository userRepository;    // DB에 사용자 저장/조회
     private final PasswordEncoder passwordEncoder;  // 비밀번호를 암호화할 때 사용
     private final JwtTokenProvider jwtTokenProvider;
+
+    private User getCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("사용자 없음"));
+    }
 
     public void signup(String username, String password, String email) {
         if (userRepository.findByUsername(username).isPresent()) {
@@ -36,5 +43,23 @@ public class AuthService {
         }
 
         return jwtTokenProvider.generateToken(user.getUsername()); // 검증을 통과하면 username을 넣은 JWT 토큰 생성 후 반환
+    }
+
+    public void updateUser(String password, String email) {
+        User user = getCurrentUser();
+
+        if (password != null && !password.isBlank()) {
+            user.setPassword(passwordEncoder.encode(password));
+        }
+        if (email != null && !email.isBlank()) {
+            user.setEmail(email);
+        }
+
+        userRepository.save(user);
+    }
+
+    public void deleteUser() {
+        User user = getCurrentUser();
+        userRepository.delete(user);
     }
 }
