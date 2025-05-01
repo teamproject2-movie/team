@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마이페이지</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>마이페이지</h1>
+
+    <section class="profile-section">
+      <h2>프로필</h2>
+      <img id="currentProfile" class="profile-current" src="profile/profile1.png" alt="현재 프로필" />
+
+      <button onclick="toggleProfileSelection()">프로필 사진 선택</button>
+
+      <div id="profileOptions" class="profile-options hidden">
+        <img src="profile/profile1.png" onclick="selectProfile('profile1.png')" />
+        <img src="profile/profile2.png" onclick="selectProfile('profile2.png')" />
+        <img src="profile/profile3.png" onclick="selectProfile('profile3.png')" />
+        <img src="profile/profile4.png" onclick="selectProfile('profile4.png')" />
+        <img src="profile/profile5.png" onclick="selectProfile('profile5.png')" />
+        <img src="profile/profile6.png" onclick="selectProfile('profile6.png')" />
+        <img src="profile/profile7.png" onclick="selectProfile('profile7.png')" />
+        <img src="profile/profile8.png" onclick="selectProfile('profile8.png')" />
+        <img src="profile/profile9.png" onclick="selectProfile('profile9.png')" />
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>정보 수정</h2>
+      <label for="email">이메일 변경</label>
+      <input type="email" id="email" placeholder="example@email.com" />
+
+      <label for="password">비밀번호 변경</label>
+      <input type="password" id="password" placeholder="새 비밀번호" />
+
+      <button onclick="updateInfo()">정보 수정</button>
+    </section>
+
+    <section class="logout-section">
+      <button onclick="logout()">로그아웃</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
