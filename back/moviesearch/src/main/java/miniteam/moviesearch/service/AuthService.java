@@ -62,4 +62,15 @@ public class AuthService {
         User user = getCurrentUser();
         userRepository.delete(user);
     }
+
+    public userProfileResponse getProfileImage() {
+        User user = getCurrentUser();
+        return new userProfileResponse(user.getProfileImage());
+    }
+
+    public void updateProfileImage(String filename) {
+        User user = getCurrentUser();
+        user.setProfileImage(filename);
+        userRepository.save(user);
+    }
 }

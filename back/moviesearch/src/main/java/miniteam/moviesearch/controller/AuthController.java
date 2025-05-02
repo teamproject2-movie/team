@@ -2,9 +2,7 @@ package miniteam.moviesearch.controller;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import miniteam.moviesearch.dto.LoginRequest;
-import miniteam.moviesearch.dto.SignupRequest;
-import miniteam.moviesearch.dto.UserUpdateRequest;
+import miniteam.moviesearch.dto.*;
 import miniteam.moviesearch.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +38,15 @@ public class AuthController {
         authService.deleteUser();
         return ResponseEntity.ok("사용자 계정이 삭제되었습니다.");
     }
-    // 내부 DTO 클래스
-    // 클라이언트에서 보낸 JSON을 파싱할 때 사용
+
+    @PutMapping("/profile")
+    public ResponseEntity<?> updateProfile(@RequestBody UserProfileRequest request) {
+        authService.updateProfileImage(request.getProfileImage());
+        return ResponseEntity.ok("프로필 이미지가 변경되었습니다.");
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserProfileResponse> getProfile() {
+        return ResponseEntity.ok(authService.getProfileImage());
+    }
 }

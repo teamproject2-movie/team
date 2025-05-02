@@ -20,4 +20,7 @@ public class User {
     private String password;    //password는 암호화된 비밀번호가 저장됨
 
     private String email;       //email은 그냥 저장됨
+
+    @Column(nullable = true)
+    private String profileImage;
 }
