@@ -31,7 +31,8 @@ public class SecurityConfig { // 시큐리티 설정 클래스
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of(
                 "http://54.252.242.219:3000",
-                "http://54.252.242.219:80"));
+                "http://54.252.242.219:80",
+                "http://127.0.0.1:3000"));
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
