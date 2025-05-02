@@ -7,24 +7,6 @@ function searchMovies() {
     return;
   }
 
-  const mockMovies = [
-    {
-      title: "어벤져스: 엔드게임",
-      overview: "모든 것을 건 최후의 결전이 시작된다!",
-      posterPath: "https://image.tmdb.org/t/p/w500/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg"
-    },
-    {
-      title: "기생충",
-      overview: "봉준호 감독의 사회 풍자 걸작",
-      posterPath: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
-    },
-    {
-      title: "인터스텔라",
-      overview: "우주를 넘는 사랑과 모험 이야기",
-      posterPath: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-    }
-  ];
-
   const filteredMovies = mockMovies.filter(movie =>
       movie.title.includes(query) || movie.overview.includes(query)
   );
@@ -48,12 +30,12 @@ function searchMovies() {
   resultSection.appendChild(cardContainer);
 
   //서버 연결 부분
-  fetch(`http://54.252.242.219:8080/api/movies/Search?query=${encodeURIComponent(query)}`, {
-    /*  method: "GET",
-          headers: {
+  fetch(`http://54.252.242.219:8080/api/movies/search?query=${encodeURIComponent(query)}`, {
+      method: "GET",
+      headers: {
         "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
-            "Content-Type": "application/json"
-      }*/
+        "Content-Type": "application/json"
+      }
   })
       .then(response => {
         if (!response.ok) throw new Error("검색 실패");
