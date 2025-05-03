@@ -1,6 +1,7 @@
 package miniteam.moviesearch.service;
 
 import lombok.RequiredArgsConstructor;
+import miniteam.moviesearch.dto.UserProfileResponse;
 import miniteam.moviesearch.entity.User;
 import miniteam.moviesearch.repository.UserRepository;
 import miniteam.moviesearch.security.JwtTokenProvider;
@@ -63,9 +64,9 @@ public class AuthService {
         userRepository.delete(user);
     }
 
-    public userProfileResponse getProfileImage() {
+    public UserProfileResponse getProfileImage() {
         User user = getCurrentUser();
-        return new userProfileResponse(user.getProfileImage());
+        return new UserProfileResponse(user.getProfileImage());
     }
 
     public void updateProfileImage(String filename) {
