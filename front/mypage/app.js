@@ -1,6 +1,6 @@
 // 페이지 로딩 시 현재 프로필 이미지 불러오기
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(" ", { 
+    fetch("http://54.252.242.219:8080/api/auth/me", { 
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -25,7 +25,7 @@ function toggleProfileSelection() {
   
   // 프로필 선택
 function selectProfile(filename) {
-    fetch("  ", {
+    fetch("http://54.252.242.219:8080/api/auth/profile", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
