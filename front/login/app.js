@@ -26,7 +26,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
             const pureToken = text.replace("Bearer ", "");
             localStorage.setItem("accessToken", pureToken);
             alert("로그인 성공!");
-            location.href = "../movieFinder/index.html"; // 로그인 성공 시 메인 페이지 이동
+            location.href = "../MovieFinder/index.html"; // 로그인 성공 시 메인 페이지 이동
         })
         .catch(error => {
             console.error("로그인 에러:", error);
