@@ -57,7 +57,7 @@ public class SecurityConfig { // 시큐리티 설정 클래스
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/api/auth/**",
-                                "/api/movies/Search",
+                                "/api/movies/search",
                                 "/login/**",
                                 "/register/**",
                                 "/MovieFinder/**",
