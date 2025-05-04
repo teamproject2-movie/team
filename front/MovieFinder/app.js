@@ -1,4 +1,4 @@
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 로컬 데이터 부분!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/**!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 로컬 데이터 부분!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 const dummyData = [
   {
     id: 550,
@@ -78,7 +78,12 @@ function searchMovies() {
 
   resultSection.appendChild(cardContainer);
 }
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+
+function searchMovies() {
+  const query = document.getElementById("searchInput").value.trim();
+  const resultSection = document.getElementById("resultSection");
 
 fetch(`http://54.252.242.219:8080/api/movies/search?query=${encodeURIComponent(query)}`, {
   method: "GET",
@@ -118,4 +123,4 @@ fetch(`http://54.252.242.219:8080/api/movies/search?query=${encodeURIComponent(q
   console.error("검색 에러:", error);
   alert("검색 결과가 없습니다.");
 });
-
+};
