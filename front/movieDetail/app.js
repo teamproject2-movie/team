@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     
-    fetch(`http://54.252.242.219:8080/api/movies/Search/${movieId}`)
+    fetch(`http://54.252.242.219:8080/api/movies/search/${movieId}`)
         .then(res => {
         if (!res.ok) throw new Error("영화 정보를 불러오지 못했습니다.");
         return res.json();
