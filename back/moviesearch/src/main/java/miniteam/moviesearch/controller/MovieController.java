@@ -30,7 +30,7 @@ public class MovieController {  // 실제 컨트롤러 클래스 선언
         //ResponseEntity.ok(...): HTTP 200 응답으로 클라이언트에 결과 반환
     }
 
-    @GetMapping("/{id}")    // /api/movies/{id} 요청을 처리 (영화 상세 조회)
+    @GetMapping("/search/{id}")    // /api/movies/{id} 요청을 처리 (영화 상세 조회)
     // {id}는 영화 ID, TMDb에 요청해 상세 정보 받아옴
     public ResponseEntity<?> getMovieDetail(@PathVariable Long id) {
         try{
