@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  // 프로필 사진 목록 toggle
+// 프로필 사진 목록 toggle
 function toggleProfileSelection() {
     const box = document.getElementById("profileOptions");
     box.classList.toggle("hidden");
 }
   
-  // 프로필 선택
+// 프로필 선택
 function selectProfile(filename) {
     fetch("http://54.252.242.219:8080/api/auth/profile", {
       method: "PUT",
@@ -44,18 +44,21 @@ function selectProfile(filename) {
     });
 }
   
-  // 이메일/비밀번호 변경
+// 이메일/비밀번호 변경
 function updateInfo() {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
   
-    fetch("http://localhost:8080/api/user/update", {
+    fetch("http://54.252.242.219:8080/api/user/update", {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({
+        email: emailValue,
+        password: passwordValue,
+        profileImage: selcetedImage })
     })
     .then(res => {
       if (!res.ok) throw new Error("정보 수정 실패");
@@ -67,7 +70,7 @@ function updateInfo() {
     });
 }
   
-  // 로그아웃
+// 로그아웃
 function logout() {
     localStorage.removeItem("accessToken");
     alert("로그아웃되었습니다.");

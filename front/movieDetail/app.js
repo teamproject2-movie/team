@@ -75,39 +75,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const movieId = params.get("id");
-    
-    if (!movieId) {
-        alert("잘못된 접근입니다.");
-        return;
-    }
-    
-    fetch(`http://54.252.242.219:8080/api/movies/search/${movieId}`)
-        .then(res => {
-        if (!res.ok) throw new Error("영화 정보를 불러오지 못했습니다.");
-        return res.json();
-        })
-        .then(data => {
-        document.getElementById("movie-title").innerText = data.title;
-        document.getElementById("movie-poster").src = data.posterUrl;
-        document.getElementById("release-date").innerText = data.releaseDate;
-        document.getElementById("movie-overview").innerText = data.overview || "줄거리 정보 없음";
-    
-        const genreContainer = document.getElementById("movie-genre");
-        genreContainer.innerHTML = "";
-        data.genres.forEach(g => {
-            const span = document.createElement("span");
-            span.className = "genre-tag";
-            span.innerText = g;
-            genreContainer.appendChild(span);
-        });
-    
-        setupBookmarkButton(data.id);
-        })
-        .catch(err => {
-        console.error(err);
-        alert("상세 정보 로딩 실패");
-        });
-});  
-  
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get("id");
+
+  if (!movieId) {
+      alert("잘못된 접근입니다.");
+      return;
+  }
+
+  const token = localStorage.getItem("accessToken");
+  if (!token) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "../login/index.html";
+      return;
+  }
+
+  fetch(`http://54.252.242.219:8080/api/movies/search/${movieId}`, {
+      method: "GET",
+      headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+      }
+  })
+      .then(res => {
+          if (!res.ok) throw new Error("영화 정보를 불러오지 못했습니다.");
+          return res.json();
+      })
+      .then(data => {
+          document.getElementById("movie-title").innerText = data.title;
+          document.getElementById("movie-poster").src = data.posterUrl;
+          document.getElementById("release-date").innerText = data.releaseDate;
+          document.getElementById("movie-overview").innerText = data.overview || "줄거리 정보 없음";
+
+          const genreContainer = document.getElementById("movie-genre");
+          genreContainer.innerHTML = "";
+          data.genres.forEach(g => {
+              const span = document.createElement("span");
+              span.className = "genre-tag";
+              span.innerText = g;
+              genreContainer.appendChild(span);
+          });
+
+          setupBookmarkButton(data.id);
+      })
+      .catch(err => {
+          console.error("Error:", err);
+          alert("상세 정보 로딩 실패");
+      });
+});

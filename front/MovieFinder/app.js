@@ -81,52 +81,46 @@ function searchMovies() {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const movieId = params.get("id");
+function searchMovies() {
+  const query = document.getElementById("searchInput").value.trim();
+  const resultSection = document.getElementById("resultSection");
 
-  if (!movieId) {
-      alert("잘못된 접근입니다.");
-      return;
+fetch(`http://54.252.242.219:8080/api/movies/search?query=${encodeURIComponent(query)}`, {
+  method: "GET",
+  headers: {
+    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+    "Content-Type": "application/json"
   }
+})
+.then(response => {
+  if (!response.ok) throw new Error("검색 실패");
+  return response.json();
+})
+.then(movies => {
+  resultSection.innerHTML = `<h2>"${query}"에 대한 영화 목록</h2><p>총 ${movies.length}개의 영화가 검색되었습니다.</p>`;
 
-  const token = localStorage.getItem("accessToken");
-  if (!token) {
-      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-      window.location.href = "../login/index.html";
-      return;
-  }
+  const cardContainer = document.createElement("div");
+  cardContainer.className = "card-container";
 
-  fetch(`http://54.252.242.219:8080/api/movies/search/${movieId}`, {
-      method: "GET",
-      headers: {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json"
-      }
-  })
-      .then(res => {
-          if (!res.ok) throw new Error("영화 정보를 불러오지 못했습니다.");
-          return res.json();
-      })
-      .then(data => {
-          document.getElementById("movie-title").innerText = data.title;
-          document.getElementById("movie-poster").src = data.posterUrl;
-          document.getElementById("release-date").innerText = data.releaseDate;
-          document.getElementById("movie-overview").innerText = data.overview || "줄거리 정보 없음";
+  movies.forEach(movie => {
+    const card = document.createElement("div");
+    card.className = "movie-card";
+    card.onclick = () => {
+      window.location.href = `../movieDetail/index.html?id=${movie.id}`;
+    };
+    const genreTags = movie.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join(" ");
+    card.innerHTML = `
+        <img src="${movie.posterUrl}" alt="포스터" />
+        <h3>${movie.title}</h3>
+        <div class="genre-box">${genreTags}</div>
+    `;
+    cardContainer.appendChild(card);
+  });
 
-          const genreContainer = document.getElementById("movie-genre");
-          genreContainer.innerHTML = "";
-          data.genres.forEach(g => {
-              const span = document.createElement("span");
-              span.className = "genre-tag";
-              span.innerText = g;
-              genreContainer.appendChild(span);
-          });
-
-          setupBookmarkButton(data.id);
-      })
-      .catch(err => {
-          console.error("Error:", err);
-          alert("상세 정보 로딩 실패");
-      });
+  resultSection.appendChild(cardContainer);
+})
+.catch(error => {
+  console.error("검색 에러:", error);
+  alert("검색 결과가 없습니다.");
 });
+};
