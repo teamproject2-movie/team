@@ -35,7 +35,7 @@ function selectProfile(filename) {
     })
     .then(res => {
       if (!res.ok) throw new Error("프로필 저장 실패");
-      document.getElementById("currentProfile").src = filename;
+      document.getElementById("currentProfile").src = "/mypage/profile/" + filename;
       alert("프로필 이미지가 변경되었습니다.");
     })
     .catch(err => {
