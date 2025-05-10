@@ -7,6 +7,7 @@ import miniteam.moviesearch.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController             // 이 클래스는 REST API를 처리하는 컨트롤러 라는 뜻 (자동으로 @ResponseBody 포함)
@@ -38,5 +39,14 @@ public class MovieController {  // 실제 컨트롤러 클래스 선언
         } catch (Exception e) {
             return ResponseEntity.status(404).body("해당 영화가 존재하지 않습니다");
         }
+    }
+
+    @GetMapping("/{id}/trailer")
+    public ResponseEntity<?> getTrailer(@PathVariable Long id) {
+        String url = movieService.getYoutubeTrailerUrl(id);
+        if (url == null) {
+            return ResponseEntity.status(404).body("예고편 없음");
+        }
+        return ResponseEntity.ok(Collections.singletonMap("trailerUrl", url));
     }
 }

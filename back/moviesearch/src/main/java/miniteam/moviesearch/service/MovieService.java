@@ -35,36 +35,46 @@ public class MovieService {
     public List<MovieDto> searchMovies(String query, String language) {  // 검색어(query)를 받아서 TMDb API를 호출하고 결과를 DTO로 가공해주는 메서드
         loadGenreMapIfNeeded(); // 장르 정보 먼저 불러오기
 
-        // 영화 검색
-        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + query + "&language=" + language; // TMDb의 검색 API URL 생성
-        // 쿼리와 API 키를 붙여 완성된 요청 URL 만들기
-        TmdbSearchResponse response = restTemplate.getForObject(url, TmdbSearchResponse.class); //해당 URL로 GET요청을 보내고, 응답을 TmdbSearchResponse 객체로 자동 피싱
+        List<MovieDto> allResults = new ArrayList<>();
+        for (int page = 1; page <= 2; page++) {
+            // 영화 검색
+            String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey +
+                    "&query=" + query +
+                    "&language=" + language +
+                    "&page=" + page; // TMDb의 검색 API URL 생성
+
+            // 쿼리와 API 키를 붙여 완성된 요청 URL 만들기
+            TmdbSearchResponse response = restTemplate.getForObject(url, TmdbSearchResponse.class); //해당 URL로 GET요청을 보내고, 응답을 TmdbSearchResponse 객체로 자동 피싱
 
 
-        if (response == null || response.getResults() == null) {
-            return Collections.emptyList();
-        }   // 응답이 비어 있거나 result리스트가 없을 경우 빈 리스트 반환 (null 방지)
+            if (response != null && response.getResults() != null) {
+                List<MovieDto> movieDtos = response.getResults().stream().map(item -> { // results 리스트를 반복하며 각 영화 객체를 가공
+                    MovieDto dto = new MovieDto();
+                    dto.setId(item.getId());
+                    dto.setTitle(item.getTitle());
+                    dto.setReleaseDate(item.getReleaseDate());
+                    dto.setPosterUrl("https://image.tmdb.org/t/p/w500" + item.getPosterPath());
+                    dto.setOverview(item.getOverview());
 
-        return response.getResults().stream().map(item -> { // results 리스트를 반복하며 각 영화 객체를 가공
-            MovieDto dto = new MovieDto();
-            dto.setId(item.getId());
-            dto.setTitle(item.getTitle());
-            dto.setReleaseDate(item.getReleaseDate());
-            dto.setPosterUrl("https://image.tmdb.org/t/p/w500" + item.getPosterPath());
-            dto.setOverview(item.getOverview());
-
-            List<String> genreNames = item.getGenreIds().stream() // item.getGenreIds()는 TMDb가 응답한 장르숫자 리스트 (예[28, 12]) .stream()은 리스트를 하나씩 반복해서 처리할 준비를 함( Java 스트림 문법)
+                    List<String> genreNames = item.getGenreIds().stream() // item.getGenreIds()는 TMDb가 응답한 장르숫자 리스트 (예[28, 12]) .stream()은 리스트를 하나씩 반복해서 처리할 준비를 함( Java 스트림 문법)
                             .map(genreMap::get) // 장르 ID를 genreMap에서 꺼내서 이름으로 바꿈 예) 28 -> "Action" 즉, TMDb가 준 ID를 우리가 미리 받아둔 장르 맵에서 찾아서 바꾸는 중
                             .filter(Objects::nonNull) // 혹시라도 ID에 해당하는 장르 이름이 없을 경우(null)를 제외하는 단계
                             .collect(Collectors.toList());  // 위에서 변환된 장르 이름들을 다시 리스트형태로 모음
-            if (genreNames.isEmpty()) { // 만약 TMDb가 genre)ids를 빈 리스트로 줬다면 genreNames도 비어있을 것
-                genreNames.add("장르 없음");    // 그럴 때 빈칸 대신 "장르 없음"을 문자열에 입력
-            }
-            dto.setGenres(genreNames);  // MovieDto 객체에 genres 리스트를 넣어주는 단계
-            // 이후 이 DTO는 Controller를 통해 프론트엔드나 Swagger로 응답함
 
-            return dto;
-        }).collect(Collectors.toList());
+                    if (genreNames.isEmpty()) { // 만약 TMDb가 genre)ids를 빈 리스트로 줬다면 genreNames도 비어있을 것
+                        genreNames.add("장르 없음");    // 그럴 때 빈칸 대신 "장르 없음"을 문자열에 입력
+                    }
+                    dto.setGenres(genreNames);  // MovieDto 객체에 genres 리스트를 넣어주는 단계
+                    // 이후 이 DTO는 Controller를 통해 프론트엔드나 Swagger로 응답함
+
+                    return dto;
+                }).toList();
+
+                allResults.addAll(movieDtos);
+            }
+        }
+
+        return allResults;
     }// 각영화에 대해 MovieDto 객체를 만들고 필요한 값 설정
     // TMDb 검색 API를 호출하고, 응답을 MovieDto 리스트로 변환
     // 포스터 URL 앞에 이미지 경로 prefix를 붙여서 완성
@@ -111,5 +121,19 @@ public class MovieService {
         return dto;
     }   // TMDb 상세정보 API 호출
         // 줄거리, 장르, 포스터, 개봉일 등 가공해서 MovieDetailDto로 변환
+
+    public String getYoutubeTrailerUrl(Long movieId) {
+        String url = "https://api,themoviedb.org/3/movie/" + movieId + "/videos?api_key=" + apiKey + "&language=ko-KR";
+
+        Map<String,Object> response = restTemplate.getForObject(url, Map.class);
+        List<Map<String, String>> results = (List<Map<String, String>>) response.get("results");
+
+        for (Map<String, String> video : results) {
+            if ("Trailer".equalsIgnoreCase(video.get("type")) && "YouTube".equalsIgnoreCase(video.get("site"))) {
+                return "https://www.youtube.com/embed/" + video.get("key") + "?autoplay=1?mute=1";
+            }
+        }
+        return null;
+    }
 }
 
