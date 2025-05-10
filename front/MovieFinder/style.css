@@ -112,3 +112,35 @@ body {
 .genre-box {
     margin-top: 5px;
 }
+
+.movie-card {
+  position: relative;
+}
+
+.bookmark-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  z-index: 2;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 4px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background: black;
+  color: white;
+  font-weight: bold;
+}
