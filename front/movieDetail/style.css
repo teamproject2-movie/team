@@ -96,4 +96,15 @@ header {
     margin-right: 5px;
     border-radius: 12px;
 }
-  
+
+.trailer-box {
+    margin-top: 20px;
+}
+
+.trailer-box iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 340px;
+    border-radius: 10px;
+    display: block;
+}
